@@ -14,6 +14,8 @@ function checkCommand() {
 checkCommand dart
 checkCommand pub
 
+DART=$(which dart)
+
 rm -rf $TMP
 
 mkdir -p $TMP
@@ -29,6 +31,6 @@ PUB_CACHE=$TMP/.pub-cache pub get
 
 ln -s $TMP/.pub-cache/hosted/pub.dartlang.org/pub_bin-*/bin/* .
 
-PUB_BIN_BASE=/usr/local/pub-bin dart ./pub-bin.dart install pub_bin
+PUB_BIN_BASE=/usr/local/pub-bin $DART ./pub-bin.dart install pub_bin
 
 rm -rf $TMP

@@ -93,7 +93,7 @@ Future link(String base, String package) {
                         return bin.delete();
                 })
                 .then((_) {
-                    return bin.writeAsString("#!/bin/sh\ndart $base/$package/bin/$name.dart \"\$@\"\n", flush: true);
+                    return bin.writeAsString("#!/bin/sh\n${Platform.executable} $base/$package/bin/$name.dart \"\$@\"\n", flush: true);
                 })
                 .then((_) {
                     return Process.run("chmod", ["+x", bin.path]);
