@@ -4,9 +4,15 @@ library pub_bin.pubget;
 import 'dart:io';
 import 'dart:async';
 
+import 'package:path/path.dart';
+
 Future pubget(base, package) {
+    String pubExec = "pub";
+    String platformDir = dirname(Platform.executable);
+    if (platformDir.startsWith("/"))
+        pubExec = "$platformDir/pub";
     print("$package: Running pub get");
-    return Process.start("pub", ["get"], workingDirectory: "$base/$package", environment: {'PUB_CACHE': "$base/.pub-cache"})
+    return Process.start(pubExec, ["get"], workingDirectory: "$base/$package", environment: {'PUB_CACHE': "$base/.pub-cache"})
     .then((process) {
         stdout.addStream(process.stdout);
         stderr.addStream(process.stderr);

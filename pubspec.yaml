@@ -1,5 +1,5 @@
 name: pub_bin
-version: 1.0.2
+version: 1.0.3
 description: Pub installer for bin packages.
 author: Salomon BRYS <salomon.brys@gmail.com>
 homepage: https://github.com/SalomonBrys/Dart-pubin

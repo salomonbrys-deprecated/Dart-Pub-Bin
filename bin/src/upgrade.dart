@@ -13,7 +13,6 @@ _upgradePackage(String base, String package) {
     return new Directory("$base/$package").exists().then((exists) {
         if (!exists)
             throw new Exception("Package $package is not installed");
-        print("$package: Running pub get");
         return pubget(base, package);
     })
     .then((_) {

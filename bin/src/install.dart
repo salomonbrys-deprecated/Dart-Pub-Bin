@@ -95,7 +95,6 @@ Future _installPackage(String base, ArgResults result, String package) {
         return dir.create(recursive: true);
     })
     .then((_) {
-        print("$package: Running pub get");
         return pubget(base, package);
     })
     .then((_) {
