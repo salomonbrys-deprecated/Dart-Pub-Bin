@@ -36,7 +36,7 @@ main(List<String> args) {
     parser.addCommand("list");
 
     var removeParser = parser.addCommand("remove");
-    defs[upgradeParser] = "package [additional-packages]";
+    defs[removeParser] = "package [additional-packages]";
 
 
     var result = parser.parse(args);
@@ -50,8 +50,11 @@ main(List<String> args) {
                 print("  $name ${defs[cmd]}");
             else
                 print("  $name");
-            print(cmd.getUsage().split("\n").map((line) => "    $line").join("\n"));
+            String cmdUsage = cmd.getUsage().split("\n").map((line) => "    $line").join("\n").trimRight();
+            if (cmdUsage.isNotEmpty)
+                print(cmdUsage);
         });
+        print("");
         exit(0);
     }
 
