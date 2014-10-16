@@ -1,3 +1,9 @@
+DEPRECATED
+==========
+
+This package has been (greatly) deprecated by Dart 1.7.0's pub feature to *activate* packages.
+
+
 dart-pub-bin
 ============
 
